@@ -1,10 +1,32 @@
+import { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
+import NavLink from "react-bootstrap/esm/NavLink";
 import Home from '../pages/Home'
-function Header(){
+
+function Header(props){
+
+    const [result, setResult] = useState([])
+    const [filter, setFilter] = useState("")
+    useEffect(()=>{
+        fetchData();
+    },[])
+
+    const fetchData = async () => {
+        let response = await (
+            await fetch('https://fakestoreapi.com/products/categories')).json()
+            setResult(response)
+    }
+
+    const FilterByCategory = async (e) =>{
+        setFilter(e.category)
+        props.changeValue(filter);
+        console.log(filter)
+    }
+
     return (
         <>
-            <Navbar bg="dark" variant="dark">
+            <Navbar sticky="top" bg="dark" variant="dark">
                 <Navbar.Brand href="localhost:3000/">
                     <img
                     alt=""
@@ -15,9 +37,12 @@ function Header(){
                     />{' '}
                     Fake Shop
                 </Navbar.Brand>
+                
+                
             </Navbar>
         </>
     )
 }
+
 
 export default Header

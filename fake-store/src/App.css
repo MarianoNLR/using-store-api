@@ -49,6 +49,38 @@
   align-items: baseline;
 }
 
+.navbar navbar-expand navbar-dark bg-dark sticky-top{
+  z-index: 500;
+}
+
+@media(max-width: 1200px){
+  .container-results{
+    margin-left: 12rem !important;
+  }
+}
+
+.dropdown-menu{
+  display: block;
+  height: 100vh !important;
+  position: fixed !important;
+  float:left !important;
+}
+
+.item-navbar{
+  color: rgb(49, 49, 49) !important;
+  margin: 0 auto;
+  padding: 20px !important;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+.item-navbar:hover{
+  color: rgb(165, 165, 165) !important;
+  transition: 0.5s
+}
+
 .product-card{
   width: 18rem;
   margin-bottom: 20px;
